@@ -18,12 +18,12 @@ public class InventoryPage extends BasePage {
     private SelenideElement inventoryPageGrid = $(".inventory_list");
 
     public String getItemPrice(ItemsEnum itemName) {
-        SelenideElement backpackDescriptionElement = $(compileLocator(ITEM_PRICE_BY_NAME_XPATH, itemName.getName()));
+        SelenideElement backpackDescriptionElement = $(By.xpath(compileLocator(ITEM_PRICE_BY_NAME_XPATH, itemName.getName())));
         return backpackDescriptionElement.getText();
     }
 
     public String getItemDescription(ItemsEnum itemName) {
-        SelenideElement backpackDescriptionElement = $(compileLocator(ITEM_DESCRIPTION_BY_NAME_XPATH, itemName.getName()));
+        SelenideElement backpackDescriptionElement = $(By.xpath(compileLocator(ITEM_DESCRIPTION_BY_NAME_XPATH, itemName.getName())));
         backpackDescriptionElement.shouldBe(Condition.visible);
         return backpackDescriptionElement.getText();
     }

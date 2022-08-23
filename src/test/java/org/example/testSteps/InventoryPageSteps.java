@@ -1,5 +1,6 @@
 package org.example.testSteps;
 
+import static com.codeborne.selenide.Condition.visible;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.example.enums.ItemsEnum;
@@ -7,7 +8,13 @@ import org.example.pageObjects.InventoryPage;
 
 public class InventoryPageSteps {
 
-    InventoryPage inventoryPage;
+    static InventoryPage inventoryPage;
+
+    public InventoryPageSteps checkIfInventoryPageIsOpened() {
+        inventoryPage = new InventoryPage();
+        inventoryPage.getInventoryPageGrid().shouldBe(visible);
+        return this;
+    }
 
     public void checkDescriptionOnUI(ItemsEnum itemName, String material) {
         Boolean containsMaterial = containsMaterialInDescriptionOnUI(itemName, material);
