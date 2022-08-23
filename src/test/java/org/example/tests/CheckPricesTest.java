@@ -1,20 +1,22 @@
 package org.example.tests;
 
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
-
-import org.openqa.selenium.By;
+import org.example.models.User;
+import org.example.testSteps.LoginPageSteps;
 import org.testng.annotations.Test;
+
+import static org.example.enums.ItemsEnum.SAUCE_LABS_BOLT_T_SHIRT;
 
 public class CheckPricesTest {
 
     @Test
     public void checkPrices() {
-        open("https://www.saucedemo.com/");
-        $(By.id("user-name")).should(appear);
-        $(By.id("user-name")).setValue("standard_user");
-        $(By.id("password")).setValue("secret_sauce");
-        $(By.id("login-button")).click();
-        $(By.cssSelector(".login_wrapper-inner")).shouldBe(visible);
+        User user = new User(System.getProperty("validUserLogin"), System.getProperty("validUserPassword"));
+        // тест не взаимодействует с пейджой, только со степами
+        // каждый степ возвращает инстанс степа, чтобы вызывать цепочкой
+        new LoginPageSteps()
+                .openLoginPage()
+                .logIn(user)
+                .checkDescriptionOnUI(SAUCE_LABS_BOLT_T_SHIRT, "cotton");
+
     }
 }
