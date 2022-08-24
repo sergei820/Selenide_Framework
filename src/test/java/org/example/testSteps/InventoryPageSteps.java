@@ -27,4 +27,10 @@ public class InventoryPageSteps {
         itemDescriptionActual = itemDescriptionActual.toLowerCase();
         return itemDescriptionActual.contains(material);
     }
+
+    public void checkPricesOnUI(ItemsEnum itemName) {
+        String itemPriceActual = inventoryPage.getItemPrice(itemName);
+        String itemPriceExpected = itemName.getPrice();
+        assertThat(itemPriceActual).isEqualTo(itemPriceExpected);
+    }
 }
