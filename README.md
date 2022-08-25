@@ -8,7 +8,7 @@ Allure Report
 ## Running the tests under Maven
 To run tests, perform:
 
-    mvn clean verify -Denv=QA
+    mvn clean verify -Denv=QA -Dbrowser=chrome
 
 To check it works correctly, run this way (tests should fail because of wrong user password):
 
