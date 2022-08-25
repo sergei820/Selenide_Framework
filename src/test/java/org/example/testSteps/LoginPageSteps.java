@@ -1,11 +1,9 @@
 package org.example.testSteps;
 
 import org.example.models.User;
-import org.example.pageObjects.InventoryPage;
 import org.example.pageObjects.LoginPage;
 
 import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.visible;
 
 public class LoginPageSteps extends BasePageSteps {
 

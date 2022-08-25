@@ -6,13 +6,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 
-import static org.example.utils.Properties.PROPERTIES;
-import static org.example.utils.Properties.PROPERTIES_FILE;
-
 public class PropertiesLoader {
 
+    static final String PROPERTIES_FILE = String.format("/%s.properties", System.getProperty("env"));
+
     public static String loadProperty(String propertyName) {
-        return PROPERTIES.getProperty(propertyName);
+        return getPropertiesInstance().getProperty(propertyName);
     }
 
     @SneakyThrows
