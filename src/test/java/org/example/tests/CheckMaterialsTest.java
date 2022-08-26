@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import static org.example.enums.ItemsEnum.SAUCE_LABS_BOLT_T_SHIRT;
 
-public class CheckMaterialsTest {
+public class CheckMaterialsTest extends BaseTest {
 
     @Test
     public void checkPrices() {

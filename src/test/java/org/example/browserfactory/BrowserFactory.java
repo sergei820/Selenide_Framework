@@ -1,22 +1,29 @@
 package org.example.browserfactory;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.Getter;
+import org.example.enums.BrowserEnum;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserFactory {
 
-    public static WebDriver getBrowser(String browserName) {
-        WebDriver driver = null;
+    @Getter
+    private static WebDriver driver;
 
-        switch (browserName) {
-            case "chrome":
-                driver = WebDriverManager.chromiumdriver().getWebDriver();
-            case "firefox":
-                driver = WebDriverManager.firefoxdriver().getWebDriver();
-            default:
-                driver = WebDriverManager.edgedriver().getWebDriver();
+    public static WebDriver getBrowser(BrowserEnum browserName) {
+        if(driver == null) {
+            switch (browserName) {
+                case CHROME:
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
+                case FIREFOX:
+                    WebDriverManager.firefoxdriver().setup();
+                    driver = new FirefoxDriver();
+            }
+            System.out.println(browserName);
         }
-
         return driver;
     }
 }

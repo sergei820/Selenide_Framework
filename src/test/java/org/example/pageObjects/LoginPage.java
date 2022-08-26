@@ -2,6 +2,7 @@ package org.example.pageObjects;
 
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
+import org.example.browserfactory.BrowserFactory;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -17,6 +18,7 @@ public class LoginPage extends BasePage {
     SelenideElement logInButton = $(By.id("login-button"));
 
     public void openPage() {
-        open("https://www.saucedemo.com/");
+        BrowserFactory.getDriver().get("https://www.saucedemo.com/");
+        //open("https://www.saucedemo.com/");
     }
 }

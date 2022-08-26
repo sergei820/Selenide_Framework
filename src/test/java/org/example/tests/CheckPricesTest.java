@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import static org.example.enums.ItemsEnum.SAUCE_LABS_BACKPACK;
 
-public class CheckPricesTest {
+public class CheckPricesTest extends BaseTest {
 
     @Test
     public void checkPrices() {
