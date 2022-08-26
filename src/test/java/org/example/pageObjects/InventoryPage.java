@@ -11,8 +11,8 @@ import static com.codeborne.selenide.Selenide.$;
 @Getter
 public class InventoryPage extends BasePage {
 
-    public static final String ITEM_PRICE_BY_NAME_XPATH = "//div[text()='REPLACE']/parent::a/parent::div[@class='inventory_item_label']/following-sibling::div[@class='pricebar']/div[@class='inventory_item_price']";
-    public static final String ITEM_DESCRIPTION_BY_NAME_XPATH = "//div[text()='REPLACE']/parent::a/following-sibling::div[@class='inventory_item_desc']";
+    public final String ITEM_PRICE_BY_NAME_XPATH = "//div[text()='REPLACE']/parent::a/parent::div[@class='inventory_item_label']/following-sibling::div[@class='pricebar']/div[@class='inventory_item_price']";
+    public final String ITEM_DESCRIPTION_BY_NAME_XPATH = "//div[text()='REPLACE']/parent::a/following-sibling::div[@class='inventory_item_desc']";
 
     private SelenideElement inventoryPageHeader = $(By.xpath("//div[@class='header_secondary_container']/span[text()='Products']"));
     private SelenideElement inventoryPageGrid = $(".inventory_list");

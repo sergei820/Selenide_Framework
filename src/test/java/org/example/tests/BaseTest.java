@@ -14,6 +14,7 @@ public class BaseTest {
     public void setUp() {
         String browser = System.getProperty("browser");
         WebDriverRunner.setWebDriver(getBrowser(BrowserEnum.valueOf(browser)));
+        //WebDriverRunner.setWebDriver(getBrowser(BrowserEnum.CHROME));
     }
 
     @AfterSuite
