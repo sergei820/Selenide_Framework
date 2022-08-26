@@ -17,15 +17,14 @@ public class InventoryPageSteps {
     }
 
     public void checkDescriptionOnUI(ItemsEnum itemName, String material) {
-        Boolean containsMaterial = containsMaterialInDescriptionOnUI(itemName, material);
+        String actualItemDesc = getItemDescriptionFromUI(itemName);
         Boolean isMadeFromCotton = itemName.getIsMadeFromCotton();
-        assertThat(containsMaterial).isEqualTo(isMadeFromCotton);
+        assertThat(actualItemDesc.contains(material)).as("Description: " + actualItemDesc + " doesn't contains material: " + material).isEqualTo(isMadeFromCotton);
     }
 
-    public boolean containsMaterialInDescriptionOnUI(ItemsEnum itemName, String material) {
+    public String getItemDescriptionFromUI(ItemsEnum itemName) {
         String itemDescriptionActual = inventoryPage.getItemDescription(itemName);
-        itemDescriptionActual = itemDescriptionActual.toLowerCase();
-        return itemDescriptionActual.contains(material);
+        return itemDescriptionActual.toLowerCase();
     }
 
     public void checkPricesOnUI(ItemsEnum itemName) {
