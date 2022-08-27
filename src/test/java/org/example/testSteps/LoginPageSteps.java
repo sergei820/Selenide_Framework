@@ -1,8 +1,5 @@
 package org.example.testSteps;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
 import org.example.models.User;
 import org.example.pageObjects.LoginPage;
@@ -13,7 +10,7 @@ public class LoginPageSteps extends BasePageSteps {
 
     static LoginPage loginPage;
 
-    //@Step("Opening login page")
+    @Step("Opening login page")
     public LoginPageSteps openLoginPage() {
         loginPage = new LoginPage();
         loginPage.openPage();
@@ -21,7 +18,7 @@ public class LoginPageSteps extends BasePageSteps {
         return this;
     }
 
-    //@Step("Logging in")
+    @Step("Logging in")
     public InventoryPageSteps logIn(User user) {
         loginPage.getUserNameField().setValue(user.getUserLogin());
         loginPage.getPasswordField().setValue(user.getUserPassword());

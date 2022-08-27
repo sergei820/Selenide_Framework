@@ -21,6 +21,7 @@
     <assertj.version>3.23.1</assertj.version>
     <aspectj.version>1.9.9.1</aspectj.version>
     <allure.version>2.19.0</allure.version>
+    <allure.maven.version>2.11.2</allure.maven.version>
     <webdrivermanager.version>5.3.0</webdrivermanager.version>
     <testng.version>7.6.1</testng.version>
     <selenide.version>6.7.2</selenide.version>
@@ -71,6 +72,12 @@
       <artifactId>allure-testng</artifactId>
       <version>${allure.version}</version>
     </dependency>
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-maven</artifactId>
+      <version>${allure.maven.version}</version>
+    </dependency>
+
 
     <dependency>
       <groupId>io.github.bonigarcia</groupId>

@@ -40,8 +40,9 @@ public class AllureListener implements ITestListener {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
     }
 
-    @Attachment//(value = "Page screenshot", type = "image/png")
+    @Attachment(value = "Screenshot", type = "image/png")
     public byte[] saveScreenshot(WebDriver driver) {
+        System.out.println("taking screenshot");
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
