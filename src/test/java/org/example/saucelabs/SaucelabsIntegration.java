@@ -1,6 +1,8 @@
 package org.example.saucelabs;
 
+import org.example.enums.BrowserEnum;
 import org.example.utils.PropertiesLoader;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -10,6 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SaucelabsIntegration {
+
+    /*public WebDriver initializeSaucelabsDriver(BrowserEnum browser) {
+        return new WebDriver();
+    }*/
 
     public static void main(String[] args) throws MalformedURLException {
         ChromeOptions browserOptions = new ChromeOptions();
