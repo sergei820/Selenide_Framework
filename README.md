@@ -10,6 +10,9 @@ To run tests, perform:
 
     mvn clean verify -Denv=QA -Dbrowser=CHROME
 
+env options: QA / DEV / ERR
+browser options: CHROME / FIREFOX / EDGE
+
 To check it works correctly, run this way (tests should fail because of wrong user password):
 
     mvn clean verify -Denv=ERR  -Dbrowser=FIREFOX

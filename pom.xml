@@ -41,6 +41,12 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>com.codeborne</groupId>
+      <artifactId>selenide-testng</artifactId>
+      <version>${selenide.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
@@ -90,6 +96,13 @@
             </argLine>
             <testFailureIgnore>true</testFailureIgnore>
           </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.aspectj</groupId>
+              <artifactId>aspectjweaver</artifactId>
+              <version>${aspectj.version}</version>
+            </dependency>
+          </dependencies>
           <executions>
             <execution>
               <goals>
