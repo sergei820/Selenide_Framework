@@ -9,21 +9,30 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserFactory {
 
-    @Getter
+    private static BrowserFactory instance = null;
+
     private static WebDriver driver;
 
-    public static WebDriver getBrowser(BrowserEnum browserName) {
-        if(driver == null) {
-            switch (browserName) {
-                case CHROME:
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                case FIREFOX:
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-            }
-            System.out.println(browserName);
+    private BrowserFactory(BrowserEnum browserName) {
+        switch (browserName) {
+            case CHROME:
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+            case FIREFOX:
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
         }
+    }
+
+    public static BrowserFactory getInstance(BrowserEnum browserName) {
+        if(instance == null) {
+            instance = new BrowserFactory(browserName);
+        }
+        return instance;
+    }
+
+    public WebDriver getDriver() {
+
         return driver;
     }
 }
