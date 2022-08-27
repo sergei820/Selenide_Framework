@@ -33,7 +33,6 @@ public class SaucelabsDriverFactory {
         } catch (MalformedURLException e) {
             log(e.getMessage());
         }
-
         return driver;
     }
 

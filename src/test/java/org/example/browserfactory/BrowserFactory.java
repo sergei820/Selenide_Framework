@@ -1,7 +1,6 @@
 package org.example.browserfactory;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import lombok.Getter;
 import org.example.enums.BrowserEnum;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,7 +23,7 @@ public class BrowserFactory {
         }
     }
 
-    public static BrowserFactory getInstance(BrowserEnum browserName) {
+    public static BrowserFactory getLocalInstance(BrowserEnum browserName) {
         if(instance == null) {
             instance = new BrowserFactory(browserName);
         }

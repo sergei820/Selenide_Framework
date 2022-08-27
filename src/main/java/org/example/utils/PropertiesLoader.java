@@ -9,7 +9,6 @@ import java.nio.charset.Charset;
 public class PropertiesLoader {
 
     static final String PROPERTIES_FILE = String.format("/%s.properties", System.getProperty("env"));
-    //static final String PROPERTIES_FILE = "/QA.properties";
 
     public static String loadProperty(String propertyName) {
         return getPropertiesInstance().getProperty(propertyName);
