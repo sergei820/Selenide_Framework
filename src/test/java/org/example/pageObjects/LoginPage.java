@@ -3,8 +3,6 @@ package org.example.pageObjects;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import lombok.Getter;
-import org.example.browserfactory.BrowserFactory;
-import org.example.enums.BrowserEnum;
 import org.example.utils.PropertiesLoader;
 import org.openqa.selenium.By;
 

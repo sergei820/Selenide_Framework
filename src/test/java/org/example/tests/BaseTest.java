@@ -1,12 +1,12 @@
 package org.example.tests;
 
 import com.codeborne.selenide.WebDriverRunner;
-import org.example.browserfactory.BrowserFactory;
 import org.example.enums.BrowserEnum;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-import static org.example.browserfactory.SaucelabsDriverFactory.getSaucelabsDriver;
+import static org.example.browserfactory.BrowserFactory.getLocalBrowser;
+import static org.example.browserfactory.BrowserFactory.getSaucelabsDriver;
 
 
 public class BaseTest {
@@ -16,7 +16,7 @@ public class BaseTest {
         String browser = System.getProperty("browser");
 
         //LOCAL DRIVER
-        //WebDriverRunner.setWebDriver(BrowserFactory.getLocalInstance(BrowserEnum.valueOf(browser)).getDriver());
+        //WebDriverRunner.setWebDriver(getLocalBrowser(BrowserEnum.valueOf(browser)));
 
         //SAUCELABS DRIVER
         WebDriverRunner.setWebDriver(getSaucelabsDriver(BrowserEnum.valueOf(browser)));
@@ -28,6 +28,4 @@ public class BaseTest {
     }
 
 
-    //WebDriverRunner.setWebDriver(getBrowser(BrowserEnum.valueOf(browser)));
-    //WebDriverRunner.setWebDriver(getBrowser(BrowserEnum.CHROME));
 }

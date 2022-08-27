@@ -6,7 +6,8 @@ import lombok.Getter;
 public enum BrowserEnum {
 
     CHROME ("chrome"),
-    FIREFOX ("firefox");
+    FIREFOX ("firefox"),
+    EDGE ("edge");
 
     private String name;
 
