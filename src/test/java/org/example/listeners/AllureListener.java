@@ -1,6 +1,7 @@
 package org.example.listeners;
 
 import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -8,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import java.io.ByteArrayInputStream;
 
 public class AllureListener implements ITestListener {
 
@@ -22,6 +25,7 @@ public class AllureListener implements ITestListener {
         System.out.println("Test failed: " + getTestMethodName(result));
         saveScreenshot(WebDriverRunner.getWebDriver());
         saveTextLog(getTestMethodName(result) + " failed. Screenshot taken.");
+        Allure.addAttachment("Attaching screenshot to Allure Report", new ByteArrayInputStream(saveScreenshot(WebDriverRunner.getWebDriver())));
     }
 
     @Override
@@ -29,6 +33,7 @@ public class AllureListener implements ITestListener {
         System.out.println("Test passed: " + getTestMethodName(result));
         saveScreenshot(WebDriverRunner.getWebDriver());
         saveTextLog(getTestMethodName(result) + " passed. Screenshot taken.");
+        Allure.addAttachment("Attaching screenshot to Allure Report", new ByteArrayInputStream(saveScreenshot(WebDriverRunner.getWebDriver())));
     }
 
     @Override
@@ -40,7 +45,7 @@ public class AllureListener implements ITestListener {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
     }
 
-    @Attachment(value = "Screenshot", type = "image/png")
+    @Attachment(value = "Page screenshot", type = "image/png")
     public byte[] saveScreenshot(WebDriver driver) {
         System.out.println("taking screenshot");
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
