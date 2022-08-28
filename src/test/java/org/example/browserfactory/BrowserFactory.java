@@ -1,6 +1,8 @@
 package org.example.browserfactory;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.example.enums.BrowserEnum;
 import org.example.utils.PropertiesLoader;
 import org.openqa.selenium.WebDriver;
@@ -17,9 +19,11 @@ import java.net.URL;
 
 import static org.testng.Reporter.log;
 
+@Getter
+@AllArgsConstructor
 public class BrowserFactory {
 
-    private static WebDriver driver;
+    protected static WebDriver driver;
 
     public static WebDriver getSaucelabsDriver(BrowserEnum browserName) {
         switch (browserName) {
@@ -36,6 +40,30 @@ public class BrowserFactory {
                 driver = new RemoteWebDriver(getSaucelabsUrl(), chromeBrowserOptions);
                 break;
             case EDGE:
+                EdgeOptions edgeBrowserOptions = new EdgeOptions();
+                edgeBrowserOptions.setPlatformName("Windows 10");
+                edgeBrowserOptions.setBrowserVersion("latest");
+                driver = new RemoteWebDriver(getSaucelabsUrl(), edgeBrowserOptions);
+                break;
+        }
+        return driver;
+    }
+
+    public static WebDriver getDriverInstance(BrowserEnum browserName) {
+        switch (browserName) {
+            case FIREFOXSAUCELABS:
+                FirefoxOptions firefixBrowserOptions = new FirefoxOptions();
+                firefixBrowserOptions.setPlatformName("Windows 10");
+                firefixBrowserOptions.setBrowserVersion("latest");
+                driver = new RemoteWebDriver(getSaucelabsUrl(), firefixBrowserOptions);
+                break;
+            case CHROMESAUCELABS:
+                ChromeOptions chromeBrowserOptions = new ChromeOptions();
+                chromeBrowserOptions.setPlatformName("Windows 10");
+                chromeBrowserOptions.setBrowserVersion("latest");
+                driver = new RemoteWebDriver(getSaucelabsUrl(), chromeBrowserOptions);
+                break;
+            case EDGESAUCELABS:
                 EdgeOptions edgeBrowserOptions = new EdgeOptions();
                 edgeBrowserOptions.setPlatformName("Windows 10");
                 edgeBrowserOptions.setBrowserVersion("latest");

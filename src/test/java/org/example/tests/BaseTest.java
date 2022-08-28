@@ -30,6 +30,4 @@ public class BaseTest {
         WebDriverRunner.getWebDriver().quit();
         setPropertiesInstance(null);
     }
-
-
 }
