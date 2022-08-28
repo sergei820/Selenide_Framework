@@ -70,7 +70,7 @@ public class BrowserFactory {
                     PropertiesLoader.loadProperty("saucelabsUsername") +
                     ":" +
                     PropertiesLoader.loadProperty("saucelabsAccessKey") +
-                    "@ondemand.eu-central-1.saucelabs.com:443/wd/hub");
+                    PropertiesLoader.loadProperty("saucelabsUrl"));
         } catch (MalformedURLException e) {
             log(e.getMessage());
         }
