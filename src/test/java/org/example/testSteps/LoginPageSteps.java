@@ -1,6 +1,8 @@
 package org.example.testSteps;
 
+import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Step;
+import org.example.listeners.AllureListener;
 import org.example.models.User;
 import org.example.pageObjects.LoginPage;
 
@@ -22,6 +24,7 @@ public class LoginPageSteps extends BasePageSteps {
     public InventoryPageSteps logIn(User user) {
         loginPage.getUserNameField().setValue(user.getUserLogin());
         loginPage.getPasswordField().setValue(user.getUserPassword());
+        //(new AllureListener()).saveScreenshot(WebDriverRunner.getWebDriver());
         loginPage.getLogInButton().click();
         return new InventoryPageSteps();
     }

@@ -1,8 +1,10 @@
 package org.example.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public enum BrowserEnum {
 
     CHROME ("chrome"),
@@ -10,8 +12,4 @@ public enum BrowserEnum {
     EDGE ("edge");
 
     private String name;
-
-    BrowserEnum(String name) {
-        this.name = name();
-    }
 }

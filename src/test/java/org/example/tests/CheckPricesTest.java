@@ -18,7 +18,7 @@ import static org.example.enums.ItemsEnum.SAUCE_LABS_BACKPACK;
 public class CheckPricesTest extends BaseTest {
 
     @Test
-    @Description("Opening login page")
+    @Description("Check prices test")
     @Epic("Epic 001")
     @Feature("Items prices functionality")
     @Severity(SeverityLevel.CRITICAL)

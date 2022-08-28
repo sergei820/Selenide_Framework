@@ -18,7 +18,7 @@ import static org.example.enums.ItemsEnum.SAUCE_LABS_BOLT_T_SHIRT;
 public class CheckMaterialsTest extends BaseTest {
 
     @Test
-    @Description("Opening login page")
+    @Description("Check materials test")
     @Severity(SeverityLevel.CRITICAL)
     @Epic("Epic 001")
     @Feature("Items materials functionality")

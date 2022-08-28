@@ -1,15 +1,12 @@
 package org.example.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public class User {
 
     private String userLogin;
     private String userPassword;
-
-    public User(String userLogin, String userPassword) {
-        this.userLogin = userLogin;
-        this.userPassword = userPassword;
-    }
 }
