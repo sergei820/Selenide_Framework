@@ -1,9 +1,7 @@
 package org.example.browserfactory.browsers;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.example.browserfactory.DriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 

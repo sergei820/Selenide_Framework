@@ -2,7 +2,6 @@ package org.example.browserfactory.browsers;
 
 import org.example.browserfactory.DriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
