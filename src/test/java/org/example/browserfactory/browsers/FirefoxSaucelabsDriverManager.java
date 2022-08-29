@@ -5,13 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class FirefoxSaucelabsDriverManager extends DriverManager {
+import static org.example.utils.UrlProvider.getSaucelabsUrl;
 
-    public static WebDriver createDriver() {
+public class FirefoxSaucelabsDriverManager implements DriverManager {
+
+    public WebDriver createDriver() {
         FirefoxOptions firefixBrowserOptions = new FirefoxOptions();
         firefixBrowserOptions.setPlatformName("Windows 10");
         firefixBrowserOptions.setBrowserVersion("latest");
-        driver = new RemoteWebDriver(getSaucelabsUrl(), firefixBrowserOptions);
-        return driver;
+        return new RemoteWebDriver(getSaucelabsUrl(), firefixBrowserOptions);
     }
 }

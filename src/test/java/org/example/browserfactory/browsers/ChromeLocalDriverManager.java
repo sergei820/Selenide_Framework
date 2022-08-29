@@ -1,15 +1,15 @@
 package org.example.browserfactory.browsers;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.example.browserfactory.DriverFactory;
 import org.example.browserfactory.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class ChromeLocalDriverManager extends DriverManager {
+public class ChromeLocalDriverManager implements DriverManager {
 
-    public static WebDriver createDriver() {
+    public WebDriver createDriver() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        return driver;
+        return new ChromeDriver();
     }
 }

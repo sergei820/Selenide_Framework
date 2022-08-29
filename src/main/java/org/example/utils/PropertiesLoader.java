@@ -12,8 +12,6 @@ import java.util.Properties;
 public class PropertiesLoader {
 
     static final String PROPERTIES_FILE = String.format("/%s.properties", System.getProperty("env"));
-    @Getter
-    @Setter
     private static java.util.Properties propertiesInstance;
 
     public static String loadProperty(String propertyName) {
@@ -21,7 +19,7 @@ public class PropertiesLoader {
     }
 
     @SneakyThrows
-    public static java.util.Properties initializePropertiesInstance() {
+    public static void initializePropertiesInstance() {
         java.util.Properties instance = new java.util.Properties();
         try (
                 InputStream resourceStream = PropertiesLoader.class.getResourceAsStream(PROPERTIES_FILE);
@@ -29,6 +27,6 @@ public class PropertiesLoader {
         ) {
             instance.load(inputStream);
         }
-        return instance;
+        propertiesInstance = instance;
     }
 }
