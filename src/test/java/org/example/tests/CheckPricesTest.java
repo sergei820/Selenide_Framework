@@ -13,6 +13,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static org.example.enums.ItemsEnum.SAUCE_LABS_BACKPACK;
+import static org.example.utils.SecurityProvider.decrypt;
 
 @Listeners({AllureListener.class})
 public class CheckPricesTest extends BaseTest {
@@ -23,7 +24,10 @@ public class CheckPricesTest extends BaseTest {
     @Feature("Items prices functionality")
     @Severity(SeverityLevel.CRITICAL)
     public void checkPrices() {
-        User user = new User(PropertiesLoader.loadProperty("validUserLogin"), PropertiesLoader.loadProperty("validUserPassword"));
+        User user = new User(
+                decrypt(PropertiesLoader.loadProperty("validUserLogin")),
+                decrypt(PropertiesLoader.loadProperty("validUserPassword"))
+        );
         new LoginPageSteps()
                 .openLoginPage()
                 .logIn(user)

@@ -13,6 +13,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static org.example.enums.ItemsEnum.SAUCE_LABS_BOLT_T_SHIRT;
+import static org.example.utils.SecurityProvider.decrypt;
 
 @Listeners({AllureListener.class})
 public class CheckMaterialsTest extends BaseTest {
@@ -23,7 +24,10 @@ public class CheckMaterialsTest extends BaseTest {
     @Epic("Epic 001")
     @Feature("Items materials functionality")
     public void checkMaterials() {
-        User user = new User(PropertiesLoader.loadProperty("validUserLogin"), PropertiesLoader.loadProperty("validUserPassword"));
+        User user = new User(
+                decrypt(PropertiesLoader.loadProperty("validUserLogin")),
+                decrypt(PropertiesLoader.loadProperty("validUserPassword"))
+        );
         //each step returns Step instance to call methods as a chain
         new LoginPageSteps()
                 .openLoginPage()
