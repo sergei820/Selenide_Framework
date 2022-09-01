@@ -24,7 +24,6 @@ public class LoginPageSteps extends BasePageSteps {
     public InventoryPageSteps logIn(User user) {
         loginPage.getUserNameField().setValue(user.getUserLogin());
         loginPage.getPasswordField().setValue(user.getUserPassword());
-        //(new AllureListener()).saveScreenshot(WebDriverRunner.getWebDriver());
         loginPage.getLogInButton().click();
         return new InventoryPageSteps();
     }

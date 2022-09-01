@@ -8,7 +8,7 @@ import java.util.Base64;
 public class SecurityProvider {
 
     private static final String ALGORITHM = "AES";
-    private static final byte[] keyValue = "ADBSJHJS12547896".getBytes();
+    private static final byte[] keyValue = System.getProperty("key").getBytes();
     private static Key key;
 
     public static void main(String args[]) throws Exception {
