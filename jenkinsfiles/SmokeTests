@@ -2,17 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Clean') {
             steps {
-                echo 'Building the project'
+                echo 'Deleting terget folder'
                 mvn clean
+            }
+        }
+        stage('Validate') {
+            steps {
+                echo 'Validating the project'
                 mvn validate
-                mvn compile
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying'
+                mvn compile
             }
         }
         stage('Run tests') {
