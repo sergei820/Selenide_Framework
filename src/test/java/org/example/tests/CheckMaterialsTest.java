@@ -19,5 +19,6 @@ public class CheckMaterialsTest {
                 .logIn(user)
                 .checkIfInventoryPageIsOpened()
                 .checkDescriptionOnUI(SAUCE_LABS_BOLT_T_SHIRT, "cotton");
+        System.out.println("Does it work?");
     }
 }
