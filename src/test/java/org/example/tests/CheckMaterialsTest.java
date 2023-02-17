@@ -11,7 +11,8 @@ public class CheckMaterialsTest {
 
     @Test
     public void checkPrices() {
-        User user = new User(PropertiesLoader.loadProperty("validUserLogin"), PropertiesLoader.loadProperty("validUserPassword"));
+        //User user = new User(PropertiesLoader.loadProperty("validUserLogin"), PropertiesLoader.loadProperty("validUserPassword"));
+        User user = new User("standard_user", "secret_sauce");
         //each step returns Step instance to call methods as a chain
         new LoginPageSteps()
                 .openLoginPage()

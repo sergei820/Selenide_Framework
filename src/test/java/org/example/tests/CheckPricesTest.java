@@ -11,7 +11,8 @@ public class CheckPricesTest {
 
     @Test
     public void checkPrices() {
-        User user = new User(PropertiesLoader.loadProperty("validUserLogin"), PropertiesLoader.loadProperty("validUserPassword"));
+        //User user = new User(PropertiesLoader.loadProperty("validUserLogin"), PropertiesLoader.loadProperty("validUserPassword"));
+        User user = new User("standard_user", "secret_sauce");
         new LoginPageSteps()
                 .openLoginPage()
                 .logIn(user)
