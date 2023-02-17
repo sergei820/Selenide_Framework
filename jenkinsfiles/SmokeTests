@@ -18,7 +18,7 @@ pipeline {
         stage('Run tests') {
             steps {
                 echo 'Running tests'
-                mvn clean verify -Denv=QA
+                mvn clean verify '-Denv=QA'
             }
         }
     }
