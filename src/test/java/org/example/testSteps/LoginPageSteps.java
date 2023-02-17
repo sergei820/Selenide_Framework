@@ -12,6 +12,7 @@ public class LoginPageSteps extends BasePageSteps {
     static LoginPage loginPage;
 
     public LoginPageSteps openLoginPage() {
+        System.out.println("Opening login page");
         loginPage = new LoginPage();
         loginPage.openPage();
         loginPage.getUserNameField().should(appear);
