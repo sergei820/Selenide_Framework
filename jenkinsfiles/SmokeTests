@@ -1,28 +1,13 @@
 pipeline {
     agent any
+    tools {
+            maven 'Maven 3.8.4'
+        }
 
     stages {
-        stage('Clean') {
-            steps {
-                echo 'Deleting terget folder'
-                mvn clean
-            }
-        }
-        stage('Validate') {
-            steps {
-                echo 'Validating the project'
-                mvn validate
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying'
-                mvn compile
-            }
-        }
         stage('Run tests') {
             steps {
-                echo 'Running tests'
+                sh 'mvn clean verify -Denv=QA'
             }
         }
     }
