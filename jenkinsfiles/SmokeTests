@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools {
-            maven 'maven-3.8.4'
-        }
 
     stages {
         stage ('Build') {
@@ -13,7 +10,7 @@ pipeline {
         stage('Run tests') {
             steps {
                 sh 'mvn clean verify -Denv=QA'
-                git branch: 'HW_4.1_Selenide'
+                git branch: 'HW_4.1_Selenide', url: 'https://github.com/sergei820/Selenide_Framework.git'
             }
         }
     }
