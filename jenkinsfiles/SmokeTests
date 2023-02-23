@@ -2,16 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage ('Build') {
-          steps {
-            sh 'mvn clean package'
-          }
+        stage('Maven Project Build') {
+                bat 'mvn clean verify -Denv=QA'
         }
-        stage('Run tests') {
-            steps {
-                sh 'mvn clean verify -Denv=QA'
-                git branch: 'HW_4.1_Selenide', url: 'https://github.com/sergei820/Selenide_Framework.git'
-            }
+        stage('Reports Generation') {
+                allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
+                emailext attachLog: true, body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!<br>Visit ${BUILD_URL} URL  to observe more details', subject: 'Pipeline Build [Pipeline1 for Projects] was finished', to: 'se25051990@gmail.com'
         }
     }
 }
