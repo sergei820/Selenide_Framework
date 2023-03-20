@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Smoke Tests" verbose="1" >
+    <test name="CheckMaterialsTest" >
+        <classes>
+            <class name="org.example.tests.CheckMaterialsTest" />
+        </classes>
+    </test>
+    <test name="CheckPricesTest" >
+        <classes>
+            <class name="org.example.tests.CheckPricesTest" />
+        </classes>
+    </test>
+</suite>
